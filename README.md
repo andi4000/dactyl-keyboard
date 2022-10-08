@@ -1,3 +1,15 @@
+# Andi4000 Dactyl-ManuForm Fork
+
+## Differences
+- 6x7 Layout
+- No Wire Post
+- Mount for [Delock Cable USB 2.0 Micro-B Female Panel-Mount](https://www.delock.com/produkt/85245/merkmale.html)
+
+
+## Original Readme Below
+
+---
+
 # The Dactyl-ManuForm Keyboard
 This is a fork of the [Dactyl](https://github.com/adereth/dactyl-keyboard), a parameterized, split-hand, concave, columnar, ergonomic keyboard.
 
