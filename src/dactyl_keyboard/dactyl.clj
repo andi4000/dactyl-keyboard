@@ -592,15 +592,49 @@
                               (union (translate [0 2 0] (cube 10.78  9 18.38))
                                      (translate [0 0 5] (cube 10.78 13  5))))))
 
-(def usb-holder-position (key-position 1 0 (map + (wall-locate2 0 1) [0 (/ mount-height 2) 0])))
-(def usb-holder-size [6.5 10.0 13.6])
-(def usb-holder-thickness 4)
-(def usb-holder
-    (->> (cube (+ (first usb-holder-size) usb-holder-thickness) (second usb-holder-size) (+ (last usb-holder-size) usb-holder-thickness))
-         (translate [(first usb-holder-position) (second usb-holder-position) (/ (+ (last usb-holder-size) usb-holder-thickness) 2)])))
-(def usb-holder-hole
-    (->> (apply cube usb-holder-size)
-         (translate [(first usb-holder-position) (second usb-holder-position) (/ (+ (last usb-holder-size) usb-holder-thickness) 2)])))
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; DeLock USB Cable Mount ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(def usb-hole-position (key-position 5 0 (map + (wall-locate2 0 1) [0 (/ mount-height 2) 0])))
+(def usb-hole-size [15 10 7.5])
+(def usb-hole-thickness 4) ; need to go
+(def usb-hole
+  (->> (apply cube usb-hole-size)
+       (translate [
+                   (first usb-hole-position)
+                   (second usb-hole-position)
+                   (/ (+ (last usb-hole-size) usb-hole-thickness) 2)
+                   ]
+       )
+  )
+)
+(def usb-hole-screws-distance 30)
+(def usb-hole-screw-left
+  (->>
+       (apply cylinder [3 15])
+       (rotate (/ π 2) [1 0 0])
+       (translate [
+                   (+ (first usb-hole-position) (/ usb-hole-screws-distance 2))
+                   (second usb-hole-position)
+                   (/ (+ (last usb-hole-size) usb-hole-thickness) 2)
+                   ]
+       )
+  )
+)
+(def usb-hole-screw-right
+  (->>
+       (apply cylinder [3 15])
+       (rotate (/ π 2) [1 0 0])
+       (translate [
+                   (- (first usb-hole-position) (/ usb-hole-screws-distance 2))
+                   (second usb-hole-position)
+                   (/ (+ (last usb-hole-size) usb-hole-thickness) 2)
+                   ]
+       )
+  )
+)
+(def usb-panel-mount (union usb-hole usb-hole-screw-left usb-hole-screw-right))
+
 
 (def teensy-width 20)  
 (def teensy-height 12)
@@ -692,33 +726,34 @@
         (key-place column row (translate [5 0 0] (wire-post  1 0)))))))
 
 
-(def model-right (difference 
+(def model-right (difference
                    (union
                     key-holes
                     connectors
                     thumb
                     thumb-connectors
-                    (difference (union case-walls 
-                                       screw-insert-outers 
+                    (difference (union case-walls
+                                       screw-insert-outers
                                        teensy-holder
-                                       usb-holder)
-                                rj9-space 
-                                usb-holder-hole
-                                screw-insert-holes)
+                                       )
+                                rj9-space
+                                usb-panel-mount
+                                screw-insert-holes
+                    )
                     rj9-holder
                     ; wire-posts
                     ; thumbcaps
                     ; caps
                     )
-                   (translate [0 0 -20] (cube 350 350 40)) 
+                   (translate [0 0 -20] (cube 350 350 40))
                   ))
 
 (spit "things/right.scad"
       (write-scad model-right))
- 
+
 (spit "things/left.scad"
       (write-scad (mirror [-1 0 0] model-right)))
-                  
+
 (spit "things/right-test.scad"
       (write-scad 
                    (union
@@ -731,7 +766,6 @@
                     caps
                     teensy-holder
                     rj9-holder
-                    usb-holder-hole
                     ; usb-holder-hole
                     ; ; teensy-holder-hole
                     ;             screw-insert-outers 
@@ -754,8 +788,13 @@
                   ))))
 
 (spit "things/test.scad"
-      (write-scad 
-         (difference usb-holder usb-holder-hole)))
+      (write-scad
+        (union
+            rj9-holder
+            usb-panel-mount
+        )
+      )
+)
 
 
 
