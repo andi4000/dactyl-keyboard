@@ -635,6 +635,80 @@
 )
 (def usb-panel-mount (union usb-hole usb-hole-screw-left usb-hole-screw-right))
 
+;;;;;;;;;;;;;;;;;;;;;
+;; ProMicro holder ;;
+;;;;;;;;;;;;;;;;;;;;;
+(def promicro-dim [35 18.5])
+(def promicro-thickness 4)
+
+(def promicro-cube [
+                          (+ promicro-thickness 0.1)
+                          (+ (first promicro-dim) 2) ; to cut though side walls
+                          (second promicro-dim) ; this should touch the pin sides of the promicro
+                          ])
+(def promicro-walls-outer [
+                          (+ promicro-thickness 2)
+                          (+ (first promicro-dim) 2)
+                          (+ (second promicro-dim) 2)
+                          ])
+(def promicro-top-outer [
+                         (+ promicro-thickness 4)
+                         (/ (second promicro-walls-outer) 2)
+                         (* (last promicro-cube) 0.5)
+                         ])
+(def promicro-walls
+  (difference
+    (union
+      (->>
+        (apply cube promicro-walls-outer)
+        (translate [0 0 (/ (last promicro-walls-outer) 2)])
+      )
+      (->>
+        (apply cube promicro-top-outer)
+        (translate [1 (/ (second promicro-walls-outer) 3) (/ (last promicro-walls-outer) 2)])
+      )
+    )
+    (->>
+        (apply cube promicro-cube)
+        (translate [1 0 (/ (last promicro-walls-outer) 2)])
+    )
+  )
+)
+
+; WARNING: this mapping is hardcoded for 6x7 layout.
+(def promicro-position (map + [-2 0 0] (key-position 0 (- centerrow 1) (wall-locate3 -1 0))))
+
+; WARNING: cheap trick, expensive computation
+(def promicro-holder-filler
+  (difference
+    (->>
+      (apply cube promicro-walls-outer)
+      (translate [
+                  (- (first promicro-position) (first promicro-walls-outer))
+                  (second promicro-position)
+                  (/ (last promicro-walls-outer) 2)
+                  ])
+    )
+    case-walls
+    (translate [-2 0 0] case-walls)
+    (translate [-4 0 0] case-walls)
+    (translate [-6 0 0] case-walls)
+  )
+)
+
+(def promicro-holder
+  (->>
+    promicro-walls
+    ;(rotate (deg2rad -10) [0 0 1])
+    (translate [
+                (first promicro-position)
+                (second promicro-position)
+                0
+                ])
+  )
+)
+
+
 
 (def teensy-width 20)  
 (def teensy-height 12)
@@ -734,7 +808,8 @@
                     thumb-connectors
                     (difference (union case-walls
                                        screw-insert-outers
-                                       teensy-holder
+                                       promicro-holder
+                                       promicro-holder-filler
                                        )
                                 rj9-space
                                 usb-panel-mount
