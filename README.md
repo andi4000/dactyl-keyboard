@@ -4,6 +4,7 @@
 - 6x7 Layout
 - No Wire Post
 - Mount for [Delock Cable USB 2.0 Micro-B Female Panel-Mount](https://www.delock.com/produkt/85245/merkmale.html)
+- Flipped RJ9 mount, so that the cable clip will end up on the upper side
 
 
 ## Original Readme Below
