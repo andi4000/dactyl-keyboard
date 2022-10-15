@@ -590,7 +590,7 @@
 (def rj9-holder (translate rj9-position
                   (difference rj9-cube
                               (union (translate [0 2 0] (cube 10.78  9 18.38))
-                                     (translate [0 0 5] (cube 10.78 13  5))))))
+                                     (translate [0 0 -5] (cube 10.78 13  5))))))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; DeLock USB Cable Mount ;;
