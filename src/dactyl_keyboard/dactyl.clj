@@ -609,9 +609,10 @@
   )
 )
 (def usb-hole-screws-distance 30)
+(def usb-hole-screw-dia 3.2) ; M3 screw, added 0.2mm for tolerance
 (def usb-hole-screw-left
   (->>
-       (apply cylinder [3 15])
+       (apply cylinder [(/ usb-hole-screw-dia 2) 15])
        (rotate (/ π 2) [1 0 0])
        (translate [
                    (+ (first usb-hole-position) (/ usb-hole-screws-distance 2))
@@ -623,7 +624,7 @@
 )
 (def usb-hole-screw-right
   (->>
-       (apply cylinder [3 15])
+       (apply cylinder [(/ usb-hole-screw-dia 2) 15])
        (rotate (/ π 2) [1 0 0])
        (translate [
                    (- (first usb-hole-position) (/ usb-hole-screws-distance 2))
