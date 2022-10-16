@@ -1,11 +1,33 @@
 # Andi4000 Dactyl-ManuForm Fork
 
 ## Differences
-- 6x7 Layout
+- 6x7 Layout. Coming from TKL ISO Layout, I am too lazy to use layers and learn
+  a new layout.
 - No Wire Post
 - Mount for [Delock Cable USB 2.0 Micro-B Female Panel-Mount](https://www.delock.com/produkt/85245/merkmale.html)
 - Flipped RJ9 mount, so that the cable clip will end up on the upper side
+- New Promicro Mount
 
+See [right.stl](things/right.stl) for preview.
+
+## FDM 3D-Print Setup
+- I use Ultimaker Cura (v5.1.1) as slicer, with following settings
+    - 0.2mm layer height
+    - (**Important**) Support Structure: Tree --> extremely easier to remove
+      compared to normal
+    - 10% Infill
+    - 10mm Brim
+- Printer: stock Sovol SV02 with heated bed, Esun PLA with 205°C nozzle temp 
+  and 60°C bed temp.
+- PVA glue (UHU Stic) applied to the bed, especially on the brim and sidewalls
+  area because they tend to warp, which is a common (big) print issue.
+- How to know where the brim and side wall will go? Start print and stop when
+  the outer brim is printed. That would be the boundaries. I applied generous
+  amount of PVA glue there.
+- Once the print reaches ca. Z=10mm, if warping is not present, print is more
+  likely to be succeeded, w.r.t. warping.
+- Be careful on removing support structure around the Promicro mount. Make sure
+  you know how it should look like without the support. See `right.stl`.
 
 ## Original Readme Below
 
