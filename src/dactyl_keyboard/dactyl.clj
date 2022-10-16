@@ -639,7 +639,7 @@
 ;;;;;;;;;;;;;;;;;;;;;
 ;; ProMicro holder ;;
 ;;;;;;;;;;;;;;;;;;;;;
-(def promicro-dim [35 18.5])
+(def promicro-dim [35 18.8]) ; added 0.3mm for loose fit
 (def promicro-thickness 4)
 
 (def promicro-cube [
@@ -655,7 +655,7 @@
 (def promicro-top-outer [
                          (+ promicro-thickness 4)
                          (/ (second promicro-walls-outer) 2)
-                         (* (last promicro-cube) 0.5)
+                         (* (last promicro-cube) 0.4)
                          ])
 (def promicro-walls
   (difference
