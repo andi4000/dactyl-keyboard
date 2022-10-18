@@ -639,7 +639,8 @@
 ;;;;;;;;;;;;;;;;;;;;;
 ;; ProMicro holder ;;
 ;;;;;;;;;;;;;;;;;;;;;
-(def promicro-dim [35 18.8]) ; added 0.3mm for loose fit
+; PCB Width is ca. 18.6mm, with added XH Connectors on both sides it becomes ca. 23mm
+(def promicro-dim [35 23])
 (def promicro-thickness 4)
 
 (def promicro-cube [
@@ -650,12 +651,12 @@
 (def promicro-walls-outer [
                           (+ promicro-thickness 2)
                           (+ (first promicro-dim) 2)
-                          (+ (second promicro-dim) 2)
+                          (+ (second promicro-dim) 2) ; upper and lower wall thickness (x2)
                           ])
 (def promicro-top-outer [
                          (+ promicro-thickness 4)
                          (/ (second promicro-walls-outer) 2)
-                         (* (last promicro-cube) 0.4)
+                         8 ; to fit between the XH connectors
                          ])
 (def promicro-walls
   (difference
