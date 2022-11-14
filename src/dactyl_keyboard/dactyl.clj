@@ -858,8 +858,8 @@
                    (cut
                      (translate [0 0 -0.1]
                        (difference (union case-walls
-                                          teensy-holder
-                                          ; rj9-holder
+                                          ; teensy-holder
+                                          rj9-holder
                                           screw-insert-outers)
                                    (translate [0 0 -10] screw-insert-screw-holes))
                   ))))
