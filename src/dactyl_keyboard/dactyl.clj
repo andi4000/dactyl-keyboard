@@ -825,50 +825,106 @@
                    (translate [0 0 -20] (cube 350 350 40))
                   ))
 
-(spit "things/right.scad"
-      (write-scad model-right))
+; (spit "things/right.scad"
+;       (write-scad model-right))
+; 
+; (spit "things/left.scad"
+;       (write-scad (mirror [-1 0 0] model-right)))
+; 
+; (spit "things/right-test.scad"
+;       (write-scad 
+;                    (union
+;                     key-holes
+;                     connectors
+;                     thumb
+;                     thumb-connectors
+;                     case-walls 
+;                     thumbcaps
+;                     caps
+;                     teensy-holder
+;                     rj9-holder
+;                     ; usb-holder-hole
+;                     ; ; teensy-holder-hole
+;                     ;             screw-insert-outers 
+;                     ;             teensy-screw-insert-holes
+;                     ;             teensy-screw-insert-outers
+;                     ;             usb-cutout 
+;                     ;             rj9-space 
+;                                 ; wire-posts
+;                   )))
 
-(spit "things/left.scad"
-      (write-scad (mirror [-1 0 0] model-right)))
+; TODO: this is hardcoded for 6x7 layout
+(def wall-cut-center [60 50 -0.1])
 
-(spit "things/right-test.scad"
-      (write-scad 
-                   (union
-                    key-holes
-                    connectors
-                    thumb
-                    thumb-connectors
-                    case-walls 
-                    thumbcaps
-                    caps
-                    teensy-holder
-                    rj9-holder
-                    ; usb-holder-hole
-                    ; ; teensy-holder-hole
-                    ;             screw-insert-outers 
-                    ;             teensy-screw-insert-holes
-                    ;             teensy-screw-insert-outers
-                    ;             usb-cutout 
-                    ;             rj9-space 
-                                ; wire-posts
-                  )))
+(def plate-wall
+  (cut
+    (translate wall-cut-center
+      (union case-walls
+             ; rj9-holder
+             ; screw-insert-outers
+             )
+    )
+  )
+)
+
+(def plate-accessories
+  (cut
+    (translate wall-cut-center
+        (union
+          rj9-holder
+          screw-insert-outers
+        )
+    )
+  )
+)
+
+(def plate-filled
+  (project
+    (union
+      (extrude-linear {:height 50 :center false :scale 0.01}
+        plate-wall
+      )
+      (cube 50 50 50)
+    )
+  )
+)
 
 (spit "things/right-plate.scad"
-      (write-scad 
-                   (cut
-                     (translate [0 0 -0.1]
-                       (difference (union case-walls
-                                          teensy-holder
-                                          ; rj9-holder
-                                          screw-insert-outers)
-                                   (translate [0 0 -10] screw-insert-screw-holes))
-                  ))))
+      (write-scad
+        (difference
+          (union
+            plate-wall
+            plate-filled
+            plate-accessories
+          )
+          (translate wall-cut-center
+            screw-insert-screw-holes
+          )
+        )
+      )
+)
+
+; (spit "things/right-plate.scad"
+;     (write-scad 
+;           (cut
+;               (translate [0 0 -0.1]
+;                   (difference
+;                       (union case-walls
+;                              rj9-holder
+;                              screw-insert-outers
+;                       )
+;                       (translate [0 0 -10] screw-insert-screw-holes))
+;               )
+;           )
+;     )
+; )
 
 (spit "things/test.scad"
       (write-scad
         (union
             rj9-holder
             usb-panel-mount
+            screw-insert-screw-holes
         )
       )
 )
