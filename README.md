@@ -98,6 +98,14 @@ then carefully insert the switch back.
 </details>
 
 <details>
+<summary>Close up of the mounted wiring harness for the left side.</summary>
+Bokeh!
+
+![wiring mounted](resources/dactyl-manuform-6x7-06.jpg)
+</details>
+
+
+<details>
 <summary>Wiring harness for the right side.</summary>
 It was a very sunny day
 
