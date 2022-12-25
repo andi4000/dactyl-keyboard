@@ -58,6 +58,50 @@ What really helped during the assembly was to have and use following:
 
 Additionally I also use XH-Type connector at the ProMicro as idiot-proofing.
 
+## Build Photos
+<details>
+<summary>Finished 24h-long print.</summary>
+"Tree" support structure really makes removing supports easier.
+
+![fresh out of the oven](resources/dactyl-manuform-6x7-02.jpg)
+</details>
+
+<details>
+<summary>Sanded, primered, painted, clear coat.</summary>
+![sanded and painted](resources/dactyl-manuform-6x7-01.jpg)
+</details>
+
+<details>
+<summary>Continuity check after soldering diodes.</summary>
+Easier if you do this in batch of e.g. 10 PCBs
+
+![continuity check](resources/dactyl-manuform-6x7-03.jpg)
+</details>
+
+<details>
+<summary>Wiring harness with Amoeba PCB for the left side.</summary>
+With XH-Connectors for the rows and columns
+
+![wiring left with XH connector](resources/dactyl-manuform-6x7-04.jpg)
+
+![wiring left](resources/dactyl-manuform-6x7-08.jpg)
+</details>
+
+<details>
+<summary>Mounted wiring harness for the left side.</summary>
+Soldering the top left (the deepest point) was really difficult.
+I found it to be easier to first remove the switch, put PCB on position,
+then carefully insert the switch back.
+
+![wiring mounted](resources/dactyl-manuform-6x7-05.jpg)
+</details>
+
+<details>
+<summary>Wiring harness for the right side.</summary>
+It was a very sunny day
+![wiring right](resources/dactyl-manuform-6x7-09.jpg)
+</details>
+
 
 ## License
 
