@@ -68,6 +68,7 @@ Additionally I also use XH-Type connector at the ProMicro as idiot-proofing.
 
 <details>
 <summary>Sanded, primered, painted, clear coat.</summary>
+
 ![sanded and painted](resources/dactyl-manuform-6x7-01.jpg)
 </details>
 
@@ -99,6 +100,7 @@ then carefully insert the switch back.
 <details>
 <summary>Wiring harness for the right side.</summary>
 It was a very sunny day
+
 ![wiring right](resources/dactyl-manuform-6x7-09.jpg)
 </details>
 
