@@ -42,6 +42,9 @@ For 6x7 you need following items:
 - M3 Heat Inserts, at least 10 pcs.
 - M3x5 countersink screws, at least 10 pcs.
 
+Wired and (almost fully) assembled left side:
+![wired left side](resources/dactyl-manuform-6x7-07.jpg)
+
 What really helped during the assembly was to have and use following:
 - [Amoeba single-switch PCB](https://deskthority.net/viewtopic.php?t=11420) from
   a local vendor. I bought 100 pcs. with some spares just in case I messed up.
