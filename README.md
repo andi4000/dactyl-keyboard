@@ -112,6 +112,10 @@ It was a very sunny day
 ![wiring right](resources/dactyl-manuform-6x7-09.jpg)
 </details>
 
+## Firmware
+
+For firmware flashing please refer to my [qmk_firmware fork](https://github.com/andi4000/qmk_firmware/tree/keymap-iso-de/keyboards/handwired/dactyl_manuform/6x7/keymaps/iso-de)
+
 
 ## License
 
