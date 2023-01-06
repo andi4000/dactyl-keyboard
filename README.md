@@ -1,5 +1,12 @@
 # Andi4000 Dactyl-ManuForm Fork
 
+![Dactyl Manuform 6x7 ISO-DE](resources/dactyl-manuform-6x7-10.jpg)
+
+Pictured is the finished build with (close to) ISO-DE Layout, with DSA Profile
+Keycaps from YMDK, and some blank 1U keycaps.
+
+![Dactyl Manuform 6x7 ISO-DE](resources/dactyl-manuform-6x7-12.jpg)
+
 ## TODO
 - reduce heat insert diameter
 
@@ -104,12 +111,17 @@ Bokeh!
 ![wiring mounted](resources/dactyl-manuform-6x7-06.jpg)
 </details>
 
-
 <details>
 <summary>Wiring harness for the right side.</summary>
 It was a very sunny day
 
 ![wiring right](resources/dactyl-manuform-6x7-09.jpg)
+</details>
+
+<details>
+<summary>Finished!</summary>
+
+![Done](resources/dactyl-manuform-6x7-11.jpg)
 </details>
 
 ## Firmware
