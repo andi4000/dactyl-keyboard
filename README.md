@@ -1,9 +1,11 @@
-# Andi4000 Dactyl-ManuForm Fork
+# Andi4000 6x7 Dactyl-ManuForm Fork
 
 ![Dactyl Manuform 6x7 ISO-DE](resources/dactyl-manuform-6x7-10.jpg)
 
 Pictured is the finished build with (close to) ISO-DE Layout, with DSA Profile
 Keycaps from YMDK, and some blank 1U keycaps.
+
+[Click here](#firmware) for the QMK Firmware for this layout.
 
 ![Dactyl Manuform 6x7 ISO-DE](resources/dactyl-manuform-6x7-12.jpg)
 
